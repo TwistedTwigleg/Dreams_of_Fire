@@ -1,0 +1,249 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2D_Art/Dreams_of_Fire_Tileset_01.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[node name="Tilemap_01" type="Node2D" index="0"]
+
+[node name="Ground_Dirt_Top" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground_Dirt_Top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Dirt_Top/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Ground_Dirt_Top_Corner" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 36, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground_Dirt_Top_Corner" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Dirt_Top_Corner/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Ground_Stone" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 0, 36 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground_Stone" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Stone/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Ground_Stone_To_Dark" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 0, 72 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground_Stone_To_Dark" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Stone_To_Dark/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Ground_Dirt_Sideways" type="Sprite" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 36, 36 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground_Dirt_Sideways" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Dirt_Sideways/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Ground_Dirt_Bottom_Corner" type="Sprite" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 36, 72 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground_Dirt_Bottom_Corner" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Dirt_Bottom_Corner/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Dark" type="Sprite" parent="." index="6"]
+
+position = Vector2( 76, 36 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Dark_Top" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 76, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dark_Top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark_Top/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Sand_Top" type="Sprite" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 115, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sand_Top" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sand_Top/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Sand_Mid" type="Sprite" parent="." index="9"]
+
+editor/display_folded = true
+position = Vector2( 115, 37 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sand_Mid" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sand_Mid/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Sand_To_Dark" type="Sprite" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( 115, 72 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sand_To_Dark" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sand_To_Dark/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+

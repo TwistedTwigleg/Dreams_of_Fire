@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Level_Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/2D_Test_Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/3D_Test_Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://2D_Art/vignette.png" type="Texture" id=4]
+[ext_resource path="res://2D_Art/white.png" type="Texture" id=5]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+
+uniform sampler2D vignette;
+uniform float fade_strength;
+
+void fragment() {
+	vec3 vignette_color = texture(vignette,UV).rgb;
+	//screen texture stores gaussian blurred copies on mipmaps
+	COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,(1.0-vignette_color.r)*4.0).rgb + vec3(fade_strength, fade_strength, fade_strength);
+	COLOR.rgb*= texture(vignette,UV).rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+shader_param/fade_strength = 0.3
+shader_param/vignette = ExtResource( 4 )
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Test_Joint_Level" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="2D" type="Viewport" parent="." index="0"]
+
+editor/display_folded = true
+arvr = false
+size = Vector2( 1280, 720 )
+own_world = true
+world = null
+transparent_bg = false
+msaa = 1
+hdr = true
+disable_3d = true
+usage = 0
+debug_draw = 0
+render_target_v_flip = true
+render_target_clear_mode = 0
+render_target_update_mode = 2
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 0
+shadow_atlas_quad_0 = 2
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Render Target" ]
+
+[node name="2D_Test_Level" parent="2D" index="0" instance=ExtResource( 2 )]
+
+[node name="3D" type="Viewport" parent="." index="1"]
+
+editor/display_folded = true
+arvr = false
+size = Vector2( 1280, 720 )
+own_world = true
+world = null
+transparent_bg = false
+msaa = 1
+hdr = true
+disable_3d = false
+usage = 2
+debug_draw = 0
+render_target_v_flip = true
+render_target_clear_mode = 0
+render_target_update_mode = 2
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 0
+shadow_atlas_quad_0 = 2
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+
+[node name="3D_Test_Level" parent="3D" index="0" instance=ExtResource( 3 )]
+
+[node name="TextureRect" type="TextureRect" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="Shader_Vignette" type="TextureRect" parent="." index="3"]
+
+material = SubResource( 2 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Material" ]
+
+

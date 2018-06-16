@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/3D/Player_3D.gd" type="Script" id=1]
+[ext_resource path="res://3D_Art/Ice_Character.dae" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+
+radius = 1.4
+height = 4.5
+
+[sub_resource type="SphereShape" id=2]
+
+radius = 2.0
+
+[node name="Player_3D" type="KinematicBody" index="0"]
+
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Scene Root" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="AnimationPlayer" parent="Scene Root" index="1"]
+
+autoplay = "Idle"
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 3.72093, -0.0783634 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 8.70855, -0.0640367 )
+shape = SubResource( 2 )
+disabled = false
+
+[node name="Camera_Holder_Y" type="Spatial" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
+
+[node name="Camera" type="Camera" parent="Camera_Holder_Y" index="0"]
+
+transform = Transform( -1, 0, -8.74228e-008, -2.99004e-008, 0.939693, 0.34202, 8.21505e-008, 0.34202, -0.939693, 0, 9, -15 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.01
+far = 100.0
+
+
+[editable path="Scene Root"]
