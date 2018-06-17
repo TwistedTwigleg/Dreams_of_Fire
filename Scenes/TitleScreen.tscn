@@ -23,37 +23,37 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Settings" ]
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0, 0.449704, 0.692308, 1 )
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0.539063, 0, 1, 1, 0.914063, 0, 0.784314, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
-gradient = SubResource( 4 )
+gradient = SubResource( 5 )
 width = 512
 
-[sub_resource type="Curve" id=8]
+[sub_resource type="Curve" id=7]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.875976 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=9]
+[sub_resource type="CurveTexture" id=8]
 
 flags = 4
 width = 512
-curve = SubResource( 8 )
+curve = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=9]
 
 render_priority = 0
 trail_divisor = 1
@@ -83,8 +83,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.8
 scale_random = 1.0
-scale_curve = SubResource( 9 )
-color_ramp = SubResource( 5 )
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -145,7 +145,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-first_level = "res://Scenes/Test_Joint_Level.tscn"
+first_level = "res://Levels/Level_01.tscn"
 
 [node name="TitleScreen_Label" type="RichTextLabel" parent="Start_Screen" index="0"]
 
@@ -227,7 +227,7 @@ _sections_unfolded = [ "custom_colors" ]
 
 modulate = Color( 0.15625, 0.15625, 0.15625, 1 )
 self_modulate = Color( 1, 0.359863, 0.109375, 1 )
-material = SubResource( 7 )
+material = SubResource( 4 )
 position = Vector2( 637.993, 700.475 )
 emitting = true
 amount = 64
@@ -242,7 +242,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 1
-process_material = SubResource( 6 )
+process_material = SubResource( 9 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1

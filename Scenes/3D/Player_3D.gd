@@ -7,7 +7,7 @@ var increased_gravity = 0;
 const INCREASED_GRAVIY_STEP = -8;
 
 const DASH_SPEED = 20;
-const DASH_TIME = 0.24;
+const DASH_TIME = 0.18;
 var dash_timer = 0;
 var is_dashing = false;
 var can_dash = false;
@@ -24,6 +24,7 @@ const MAX_SLOPE_ANGLE = 40
 
 var camera
 var camera_holder_y;
+var camera_holder_x;
 
 var MOUSE_SENSITIVITY = 0.05
 
@@ -31,9 +32,12 @@ var animation_player;
 
 var level_controller;
 
+const MAX_Y_VALUE = -20;
+
 func _ready():
-	camera = get_node("Camera_Holder_Y/Camera");
+	camera = get_node("Camera_Holder_Y/Camera_Holder_X/Camera");
 	camera_holder_y = get_node("Camera_Holder_Y");
+	camera_holder_x = get_node("Camera_Holder_Y/Camera_Holder_X");
 	
 	animation_player = get_node("Scene Root/AnimationPlayer");
 	animation_player.connect("animation_finished", self, "animation_finished");
@@ -44,8 +48,9 @@ func _ready():
 
 func _physics_process(delta):
 	if (level_controller.ice_level_visible == true):
-		process_input(delta)
-		process_movement(delta)
+		if (global_transform.origin.y > -20):
+			process_input(delta)
+			process_movement(delta)
 
 
 func process_input(delta):
@@ -163,6 +168,9 @@ func _input(event):
 	if (level_controller.ice_level_visible == true):
 		if event is InputEventMouseMotion: #and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			camera_holder_y.rotate_y(deg2rad(-event.relative.x * MOUSE_SENSITIVITY))
+			
+			camera_holder_x.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY));
+			camera_holder_x.rotation_degrees.x = clamp(camera_holder_x.rotation_degrees.x, -40, 40);
 
 
 

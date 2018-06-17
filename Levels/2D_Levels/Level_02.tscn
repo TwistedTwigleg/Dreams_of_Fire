@@ -1,0 +1,218 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/2D/Tilemap_01.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/2D/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/2D/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/2D/2D_Game_Limits.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/2D/Ice_Crystal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/2D/KeyBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/2D/Keys.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/2D/Button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/2D/Button_Block.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 14
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Level_02" type="Node2D" index="0"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -983010, 536870914, 0, -983009, 536870914, 0, -917474, 536870914, 0, -917473, 536870914, 0, -851938, 536870914, 0, -851937, 536870914, 0, -786402, 536870914, 0, -786401, 536870914, 0, -720866, 536870914, 0, -720865, 536870914, 0, -655330, 536870914, 0, -655329, 536870914, 0, -589796, 536870913, 0, -589795, 0, 0, -589794, 536870914, 0, -589793, 536870914, 0, -524260, 536870916, 0, -524259, 536870914, 0, -524258, 536870914, 0, -524257, 536870914, 0, -458724, 536870916, 0, -458723, 536870914, 0, -458722, 536870914, 0, -458721, 536870914, 0, -393188, 536870916, 0, -393187, 536870914, 0, -393186, 536870914, 0, -393185, 536870914, 0, -262151, 0, 0, -262150, 1, 0, -327654, 536870913, 0, -327653, 0, 0, -327652, 536870917, 0, -327651, 536870914, 0, -327650, 536870914, 0, -327649, 536870914, 0, -196615, 2, 0, -196614, 4, 0, -262118, 536870916, 0, -262117, 2, 0, -262116, 536870914, 0, -262115, 536870914, 0, -262114, 536870914, 0, -262113, 536870914, 0, -131079, 2, 0, -131078, 4, 0, -196582, 536870916, 0, -196581, 2, 0, -196580, 536870914, 0, -196579, 536870914, 0, -196578, 536870914, 0, -196577, 536870914, 0, -65543, 2, 0, -65542, 4, 0, -131046, 536870916, 0, -131045, 2, 0, -131044, 536870914, 0, -131043, 536870914, 0, -131042, 536870914, 0, -7, 2, 0, -6, 4, 0, -65518, 536870913, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 536870916, 0, -65509, 2, 0, -65508, 2, 0, -65507, 2, 0, -65506, 536870914, 0, 65529, 2, 0, 65530, 4, 0, 17, 536870913, 0, 18, 536870917, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 536870916, 0, 27, 2, 0, 28, 2, 0, 29, 2, 0, 30, 536870914, 0, 131065, 2, 0, 131066, 4, 0, 65552, 536870913, 0, 65553, 536870917, 0, 65554, 2, 0, 65555, 2, 0, 65556, 2, 0, 65557, 2, 0, 65558, 2, 0, 65559, 2, 0, 65560, 2, 0, 65561, 2, 0, 65562, 536870916, 0, 65563, 2, 0, 65564, 2, 0, 65565, 2, 0, 196601, 2, 0, 196602, 5, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 536870917, 0, 131076, 5, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 536870917, 0, 131083, 5, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 536870917, 0, 131099, 2, 0, 131100, 2, 0, 131101, 2, 0, 262137, 2, 0, 262138, 2, 0, 262139, 2, 0, 262140, 2, 0, 262141, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 2, 0, 196624, 2, 0, 196625, 2, 0, 196626, 2, 0, 196627, 2, 0, 196628, 2, 0, 196629, 2, 0, 196630, 2, 0, 196631, 2, 0, 196632, 2, 0, 196633, 2, 0, 196634, 2, 0, 196635, 2, 0, 196636, 2, 0, 196637, 2, 0, 327673, 3, 0, 327674, 3, 0, 327675, 3, 0, 327676, 3, 0, 327677, 3, 0, 327678, 3, 0, 327679, 3, 0, 262144, 3, 0, 262145, 3, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 262155, 3, 0, 262156, 3, 0, 262157, 3, 0, 262158, 3, 0, 262159, 3, 0, 262160, 3, 0, 262161, 3, 0, 262162, 3, 0, 262163, 3, 0, 262164, 3, 0, 262165, 3, 0, 262166, 3, 0, 262167, 3, 0, 262168, 3, 0, 262169, 3, 0, 262170, 3, 0, 262171, 3, 0, 262172, 3, 0, 262173, 3, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 44 )
+
+[node name="Background" parent="." index="2" instance=ExtResource( 3 )]
+
+path_to_target = NodePath("../Player")
+
+[node name="Game_Limits" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+script = ExtResource( 4 )
+path_to_player = NodePath("../Player")
+path_to_background = NodePath("../Background")
+
+[node name="BL" type="Position2D" parent="Game_Limits" index="0"]
+
+position = Vector2( -224, 160 )
+
+[node name="TR" type="Position2D" parent="Game_Limits" index="1"]
+
+position = Vector2( 960, -288 )
+
+[node name="Ice_Crystal" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 864, -192 )
+
+[node name="Label_Info" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -9.0
+margin_top = 71.0
+margin_right = 279.0
+margin_bottom = 137.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Lock blocks can be
+unlocked by getting the correct
+colored key"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label_Info2" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 215.0
+margin_top = 71.0
+margin_right = 503.0
+margin_bottom = 137.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "If you get stuck,
+press R or L to restart the current level"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label_Info3" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = -25.0
+margin_right = 910.0
+margin_bottom = 41.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fire can dash up
+walls to slide up them."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="KeyBlocks" type="Node2D" parent="." index="8"]
+
+editor/display_folded = true
+
+[node name="KeyBlock" parent="KeyBlocks" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 128, 48 )
+
+[node name="KeyBlock2" parent="KeyBlocks" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 128, 16 )
+
+[node name="KeyBlock3" parent="KeyBlocks" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 128, -15 )
+
+[node name="KeyBlock4" parent="KeyBlocks" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 128, -47 )
+
+[node name="KeyBlock5" parent="KeyBlocks" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 128, -79 )
+
+[node name="KeyBlock6" parent="KeyBlocks" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 128, -111 )
+
+[node name="Keys" parent="." index="9" instance=ExtResource( 8 )]
+
+position = Vector2( -112, 49 )
+
+[node name="Button" parent="." index="10" instance=ExtResource( 9 )]
+
+position = Vector2( 304, 64 )
+
+[node name="ButtonBlocks" type="Node2D" parent="." index="11"]
+
+editor/display_folded = true
+
+[node name="Button_Block" parent="ButtonBlocks" index="0" instance=ExtResource( 10 )]
+
+position = Vector2( 352, 48 )
+
+[node name="Button_Block2" parent="ButtonBlocks" index="1" instance=ExtResource( 10 )]
+
+position = Vector2( 352, 16 )
+
+[node name="Button_Block3" parent="ButtonBlocks" index="2" instance=ExtResource( 10 )]
+
+position = Vector2( 352, -16 )
+
+[node name="Button_Block4" parent="ButtonBlocks" index="3" instance=ExtResource( 10 )]
+
+position = Vector2( 352, -48 )
+
+[node name="Button_Block5" parent="ButtonBlocks" index="4" instance=ExtResource( 10 )]
+
+position = Vector2( 352, -80 )
+
+[node name="Button_Block6" parent="ButtonBlocks" index="5" instance=ExtResource( 10 )]
+
+position = Vector2( 352, -112 )
+
+

@@ -176,9 +176,8 @@ position = Vector2( 60, -30 )
 [node name="Background" parent="." index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 60, -30 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 10 )
-_sections_unfolded = [ "Offset", "Transform" ]
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 path_to_target = NodePath("../Player")
 
 [node name="Game_Limits" type="Node2D" parent="." index="11"]

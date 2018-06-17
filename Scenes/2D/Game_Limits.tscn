@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/2D/2D_Game_Limits.gd" type="Script" id=1]
+
+[node name="Game_Limits" type="Node2D"]
+
+editor/display_folded = true
+script = ExtResource( 1 )
+path_to_player = NodePath("../Player")
+path_to_background = NodePath("../Background")
+
+[node name="BL" type="Position2D" parent="." index="0"]
+
+position = Vector2( -96, 128 )
+
+[node name="TR" type="Position2D" parent="." index="1"]
+
+position = Vector2( 800, -384 )
+
+

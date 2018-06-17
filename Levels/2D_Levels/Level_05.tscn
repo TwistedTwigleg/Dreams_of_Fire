@@ -1,0 +1,165 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/2D/Tilemap_01.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/2D/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/2D/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/2D/2D_Game_Limits.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/2D/Ice_Crystal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/2D/KeyBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/2D/Keys.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 14
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Level_05" type="Node2D" index="0"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -196615, 2, 0, -196614, 2, 0, -196613, 2, 0, -196612, 2, 0, -196611, 2, 0, -196610, 2, 0, -196609, 2, 0, -262144, 2, 0, -262143, 2, 0, -262142, 2, 0, -262141, 2, 0, -262140, 2, 0, -262139, 2, 0, -262138, 2, 0, -262137, 2, 0, -262136, 2, 0, -262135, 2, 0, -262134, 2, 0, -262133, 2, 0, -131079, 2, 0, -131078, 1073741829, 0, -196598, 1610612741, 0, -196597, 2, 0, -65543, 2, 0, -65542, 4, 0, -131062, 536870916, 0, -131061, 2, 0, -7, 2, 0, -6, 4, 0, -65526, 536870916, 0, -65525, 2, 0, 65529, 2, 0, 65530, 4, 0, 10, 536870916, 0, 11, 2, 0, 131065, 2, 0, 131066, 4, 0, 65546, 536870916, 0, 65547, 2, 0, 196601, 2, 0, 196602, 4, 0, 131080, 7, 0, 131081, 7, 0, 131082, 536870916, 0, 131083, 2, 0, 262137, 2, 0, 262138, 5, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 536870917, 0, 196619, 2, 0, 327673, 3, 0, 327674, 3, 0, 327675, 3, 0, 327676, 3, 0, 327677, 3, 0, 327678, 3, 0, 327679, 3, 0, 262144, 3, 0, 262145, 3, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 262155, 3, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -48, 44 )
+
+[node name="Background" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -48, 2.38419e-006 )
+path_to_target = NodePath("../Player")
+
+[node name="Game_Limits" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+script = ExtResource( 4 )
+path_to_player = NodePath("../Player")
+path_to_background = NodePath("../Background")
+
+[node name="BL" type="Position2D" parent="Game_Limits" index="0"]
+
+position = Vector2( -224, 160 )
+
+[node name="TR" type="Position2D" parent="Game_Limits" index="1"]
+
+position = Vector2( 384, -160 )
+
+[node name="Ice_Crystal" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 288, 32 )
+
+[node name="Label_Info" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -120.0
+margin_top = 41.0
+margin_right = 168.0
+margin_bottom = 107.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Wake and fall asleep up by pressing
+CONTROL or F.
+(Controls are exactly the same!)"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label_Info2" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_top = -9.0
+margin_right = 456.0
+margin_bottom = 41.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "You need both the ice crystal and the
+fire crystal to continue to the next level"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="KeyBlocks" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+
+[node name="KeyBlock" parent="KeyBlocks" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 80, 80 )
+key_color = 1
+
+[node name="KeyBlock2" parent="KeyBlocks" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 80, 48 )
+key_color = 1
+
+[node name="KeyBlock3" parent="KeyBlocks" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 80, 16 )
+key_color = 1
+
+[node name="KeyBlock4" parent="KeyBlocks" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 80, -16 )
+key_color = 1
+
+[node name="KeyBlock5" parent="KeyBlocks" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 80, -48 )
+key_color = 1
+
+[node name="KeyBlock6" parent="KeyBlocks" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 80, -80 )
+key_color = 1
+
+[node name="Keys" parent="." index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 192, 64 )
+key_color = 2
+
+

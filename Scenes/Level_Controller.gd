@@ -232,4 +232,5 @@ func crystal_gotten(dimension="2D"):
 	
 	if (fire_cystal_got == true and ice_crystal_got == true):
 		dimension_changing = true;
+		shader_vignetee.visible = true;
 

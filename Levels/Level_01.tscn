@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Level_Controller.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/2D_Test_Level.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/3D_Test_Level.tscn" type="PackedScene" id=3]
-[ext_resource path="res://2D_Art/vignette.png" type="Texture" id=4]
-[ext_resource path="res://2D_Art/white.png" type="Texture" id=5]
-[ext_resource path="res://Fonts/MountainsofChristmas.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://2D_Art/Fire_Particles.png" type="Texture" id=7]
+[ext_resource path="res://Levels/2D_Levels/Level_01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://2D_Art/vignette.png" type="Texture" id=3]
+[ext_resource path="res://2D_Art/white.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/MountainsofChristmas.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://2D_Art/Fire_Particles.png" type="Texture" id=6]
 
 [sub_resource type="Gradient" id=1]
 
@@ -38,7 +37,7 @@ void fragment() {
 render_priority = 0
 shader = SubResource( 3 )
 shader_param/fade_strength = 0.3
-shader_param/vignette = ExtResource( 4 )
+shader_param/vignette = ExtResource( 3 )
 _sections_unfolded = [ "shader_param" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -46,7 +45,7 @@ _sections_unfolded = [ "shader_param" ]
 size = 64
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Settings" ]
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -90,14 +89,14 @@ render_priority = 0
 blend_mode = 1
 light_mode = 0
 
-[node name="Test_Joint_Level" type="Node" index="0"]
+[node name="Level_01" type="Node" index="0"]
 
 script = ExtResource( 1 )
-next_level = "res://Scenes/Test_Joint_Level.tscn"
-restart_level = "res://Scenes/Test_Joint_Level.tscn"
-level_name = "Testing Level"
+next_level = "res://Levels/Level_02.tscn"
+restart_level = "res://Levels/Level_01.tscn"
+level_name = "Level 1"
 no_fire_level = false
-no_ice_level = false
+no_ice_level = true
 
 [node name="2D" type="Viewport" parent="." index="0"]
 
@@ -127,11 +126,10 @@ shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Render Target" ]
 
-[node name="2D_Test_Level" parent="2D" index="0" instance=ExtResource( 2 )]
+[node name="Level_01" parent="2D" index="0" instance=ExtResource( 2 )]
 
 [node name="3D" type="Viewport" parent="." index="1"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 1280, 720 )
 own_world = true
@@ -155,8 +153,6 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
-
-[node name="3D_Test_Level" parent="3D" index="0" instance=ExtResource( 3 )]
 
 [node name="TextureRect" type="TextureRect" parent="." index="2"]
 
@@ -187,7 +183,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material" ]
@@ -257,7 +253,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Visibility" ]
@@ -281,7 +277,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
@@ -304,7 +300,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
@@ -328,7 +324,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility" ]
