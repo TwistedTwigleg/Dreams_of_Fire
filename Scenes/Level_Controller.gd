@@ -34,7 +34,21 @@ const BLACK_VIGNETTE_STRENGTH = -1;
 var shader_strength;
 var shader_vignetee;
 
-var level_changing = false;
+var dimension_changing = false;
+
+export (String, FILE) var next_level;
+export (String, FILE) var restart_level;
+export (String) var level_name = "Legacy Code";
+var level_name_fade = 1.0;
+var level_name_label = null;
+const LEVEL_NAME_FADE_STRENGTH = 0.5;
+
+export (bool) var no_fire_level = false;
+export (bool) var no_ice_level = false;
+
+const PAUSE_POPUP_SCENE = preload("res://Scenes/Pause_Menu.tscn");
+var pause_popup = null;
+
 
 func _ready():
 	texture_rectangle = get_node("TextureRect");
@@ -45,47 +59,94 @@ func _ready():
 	shader_strength = FIRE_VIGNETTE_STRENGTH;
 	shader_vignetee.material.set_shader_param("fade_strength", shader_strength);
 	
-	fire_level_visible = true;
-	texture_rectangle.texture = fire_dimension_viewport.get_texture();
-	# Free the mouse (needed for the camera
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if (no_fire_level == false):
+		# Because of how we are entering, we need to have the opposite level/dimension
+		# visible first, so we switch to the proper one
+		fire_level_visible = false;
+		ice_level_visible = true;
+	else:
+		# Because of how we are entering, we need to have the opposite level/dimension
+		# visible first, so we switch to the proper one
+		ice_level_visible = false;
+		fire_level_visible = true;
+	
+	shader_strength = BLACK_VIGNETTE_STRENGTH;
+	shader_vignetee.visible = true;
+	shader_vignetee.material.set_shader_param("fade_strength", shader_strength);
+	dimension_changing = true;
+	
+	if (no_fire_level == true):
+		crystal_gotten("2D");
+	if (no_ice_level == true):
+		crystal_gotten("3D");
+	
+	level_name_label = get_node("Level_Name_Label");
+	level_name_label.text = level_name;
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("Change_Dimension") and level_changing == false:
-		level_changing = true;
-		shader_vignetee.visible = true;
-		shader_vignetee.modulate.a = 1;
+	# Changing dimensions
+	if Input.is_action_just_pressed("Change_Dimension") and dimension_changing == false:
+		# We do not want to be able to change dimensions if there is only one
+		if (no_fire_level == true or no_ice_level == true):
+			pass
+		else:
+			dimension_changing = true;
+			shader_vignetee.visible = true;
+			shader_vignetee.modulate.a = 1;
+	
+	# Capturing/Freeing the cursor
+	if Input.is_action_just_pressed("ui_cancel"):
+		"""
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		"""
+		if (pause_popup == null):
+			pause_popup = PAUSE_POPUP_SCENE.instance();
+			add_child(pause_popup);
+			pause_popup.level_controller = self;
+			pause_popup.popup_centered();
+			get_tree().paused = true;
 	
 	
-	if (level_changing == true):
+	if (level_name_label.modulate.a > 0):
+		level_name_label.modulate.a -= delta * LEVEL_NAME_FADE_STRENGTH;
+	
+	if Input.is_action_just_pressed("Restart"):
+		get_tree().change_scene(restart_level);
+	
+	if (dimension_changing == true):
 		
 		shader_strength -= delta;
 		shader_vignetee.material.set_shader_param("fade_strength", shader_strength);
 		
 		if (shader_strength <= BLACK_VIGNETTE_STRENGTH):
+			
+			# Is the level done? Should we move on to the next level?
+			if (fire_cystal_got == true and ice_crystal_got == true):
+				get_tree().change_scene(next_level);
+			
+			
 			if fire_level_visible == true:
 				fire_level_visible = false;
 				ice_level_visible = true;
 				
 				texture_rectangle.texture = ice_dimension_viewport.get_texture();
-				
-				# Capture the mouse (needed for the camera
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				
-				level_changing = false;
+				dimension_changing = false;
+			
 			else:
 				fire_level_visible = true;
 				ice_level_visible = false;
 				
 				texture_rectangle.texture = fire_dimension_viewport.get_texture();
-				
-				# Free the mouse (needed for the camera
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				
-				level_changing = false;
+				dimension_changing = false;
 	
-	elif (level_changing == false):
+	
+	elif (dimension_changing == false):
 		if (fire_level_visible == true):
 			if (shader_strength < FIRE_VIGNETTE_STRENGTH):
 				shader_strength += delta;
@@ -155,3 +216,20 @@ func key_gotten(color="red"):
 			for block in green_key_blocks:
 				block.key_gotten();
 		green_key_got = true;
+
+
+func crystal_gotten(dimension="2D"):
+	if (dimension == "3D"):
+		fire_cystal_got = true;
+		if (no_ice_level == false):
+			get_node("Fire_Gem_Icon").visible = true;
+			get_node("Gem_Panel").visible = true;
+	elif (dimension == "2D"):
+		ice_crystal_got = true;
+		if (no_fire_level == false):
+			get_node("Ice_Gem_Icon").visible = true;
+			get_node("Gem_Panel").visible = true;
+	
+	if (fire_cystal_got == true and ice_crystal_got == true):
+		dimension_changing = true;
+

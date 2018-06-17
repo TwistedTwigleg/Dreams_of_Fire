@@ -20,12 +20,15 @@ var dash_timer = 0;
 var is_dashing = false;
 var can_dash = false;
 var dash_direction = Vector2();
+var up_dash = false;
 
 const MERCY_TIME = 0.2;
 var mercy_timer = 0;
 var grounded = true;
 
 var direction_movement = Vector2();
+
+var camera;
 
 var animation_player;
 const ANIMATION_SPEEDS = {
@@ -42,13 +45,16 @@ func _ready():
 	animation_player.play("Idle");
 	animation_player.connect("animation_finished", self, "animation_finished");
 	
+	camera = get_node("Camera2D");
+	
 	level_controller = get_tree().root.get_child(0);
 
 func _physics_process(delta):
 	if (level_controller.fire_level_visible == true):
-		process_grounded(delta);
-		process_input(delta);
-		process_movement(delta);
+		if (self.global_position.y < camera.limit_bottom + 64):
+			process_grounded(delta);
+			process_input(delta);
+			process_movement(delta);
 
 
 func process_grounded(delta):
@@ -58,6 +64,7 @@ func process_grounded(delta):
 		grounded = true;
 		mercy_timer = 0;
 		can_dash = true;
+		up_dash = false;
 		
 		if (animation_player.current_animation == "In_Air"):
 			change_animation("Jump_End");
@@ -73,7 +80,7 @@ func process_input(delta):
 	direction_movement = Vector2();
 	
 	# We only want to be able to move while in the air, forcing the player to jump to move
-	if (grounded == false):
+	if (grounded == false and is_dashing == false):
 		if Input.is_action_pressed("Move_Right"):
 			direction_movement.x += 1;
 		if Input.is_action_pressed("Move_Left"):
@@ -112,7 +119,7 @@ func process_movement(delta):
 		
 		dash_timer += delta;
 		if (dash_timer <= DASH_TIME):
-			if (is_on_wall() == false):
+			if (is_on_wall() == false and up_dash == false):
 				
 				if (dash_direction.x == 0):
 					dash_direction.x = 1;
@@ -124,6 +131,7 @@ func process_movement(delta):
 				velocity.x = 0;
 				velocity.y = -SPEED * 2;
 				get_node("Sprite").rotation_degrees = 0;
+				up_dash = true;
 		else:
 			is_dashing = false;
 		

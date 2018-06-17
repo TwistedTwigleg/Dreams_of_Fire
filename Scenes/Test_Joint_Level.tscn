@@ -1,10 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Level_Controller.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/2D_Test_Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/3D_Test_Level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://2D_Art/vignette.png" type="Texture" id=4]
 [ext_resource path="res://2D_Art/white.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/MountainsofChristmas.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://2D_Art/Fire_Particles.png" type="Texture" id=7]
+
+[sub_resource type="Gradient" id=7]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 0.28125, 0.28125, 1, 0, 0.742188, 1, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 7 )
+width = 512
 
 [sub_resource type="Shader" id=1]
 
@@ -28,9 +41,63 @@ shader_param/fade_strength = 0.3
 shader_param/vignette = ExtResource( 4 )
 _sections_unfolded = [ "shader_param" ]
 
+[sub_resource type="DynamicFont" id=3]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="StyleBoxFlat" id=8]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.398438, 0.398438, 0.398438, 1 )
+draw_center = true
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.121094, 0.121094, 0.121094, 0.705882 )
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width" ]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 0
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 0
+
 [node name="Test_Joint_Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
+next_level = "res://Scenes/Test_Joint_Level.tscn"
+restart_level = "res://Scenes/Test_Joint_Level.tscn"
+level_name = "Testing Level"
+no_fire_level = false
+no_ice_level = false
 
 [node name="2D" type="Viewport" parent="." index="0"]
 
@@ -103,6 +170,8 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+texture = SubResource( 6 )
+expand = true
 stretch_mode = 0
 
 [node name="Shader_Vignette" type="TextureRect" parent="." index="3"]
@@ -122,5 +191,146 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Material" ]
+
+[node name="Level_Name_Label" type="Label" parent="." index="4"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -8.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Level name here"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Gem_Panel" type="Panel" parent="." index="5"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -72.0
+margin_top = -72.0
+margin_right = 72.0
+margin_bottom = 6.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panelf = SubResource( 8 )
+custom_styles/panel = SubResource( 8 )
+custom_styles/panelnc = SubResource( 8 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="Fire_Gem_Icon" type="TextureRect" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+self_modulate = Color( 1, 0.556458, 0.339844, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -64.0
+margin_right = 60.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Fire_Gem_Glow" type="TextureRect" parent="Fire_Gem_Icon" index="0"]
+
+self_modulate = Color( 1, 0.556458, 0.339844, 1 )
+material = SubResource( 5 )
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+[node name="Ice_Gem_Icon" type="TextureRect" parent="." index="7"]
+
+editor/display_folded = true
+visible = false
+self_modulate = Color( 0.320313, 0.96814, 1, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -58.0
+margin_top = -64.0
+margin_right = 6.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ice_Gem_Glow" type="TextureRect" parent="Ice_Gem_Icon" index="0"]
+
+self_modulate = Color( 0.554688, 0.937378, 1, 1 )
+material = SubResource( 4 )
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -68.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
 
 

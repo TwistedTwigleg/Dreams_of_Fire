@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/2D/Player.gd" type="Script" id=1]
 [ext_resource path="res://2D_Art/Flame_Character.png" type="Texture" id=2]
-[ext_resource path="res://2D_Art/BG.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -156,13 +155,5 @@ anims/Jump_End = SubResource( 4 )
 anims/Jump_Start = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
-
-[node name="Background" type="Sprite" parent="." index="5"]
-
-position = Vector2( 8.58307e-006, 2.38419e-006 )
-scale = Vector2( 0.833333, 0.833333 )
-z_index = -200
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Z Index" ]
 
 

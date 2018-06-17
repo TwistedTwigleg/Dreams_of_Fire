@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/2D/Tilemap_01.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/2D/Water.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/2D/Keys.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/2D/KeyBlock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/2D/Button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/2D/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/2D/Ice_Crystal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/2D/Button_Block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/2D/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/2D/KeyBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/2D/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/2D/Background.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/2D/Background.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/2D/2D_Game_Limits.gd" type="Script" id=11]
 
 [node name="2D_Test_Level" type="Node" index="0"]
 
@@ -48,113 +52,148 @@ position = Vector2( 289, -16 )
 position = Vector2( 288, -112 )
 key_color = 1
 
-[node name="KeyBlock" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Button" parent="." index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 176, 0 )
+
+[node name="Ice_Crystal" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 752, -224 )
+
+[node name="Button_Blocks" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+
+[node name="Button_Block" parent="Button_Blocks" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 208, -16 )
+
+[node name="Button_Block2" parent="Button_Blocks" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 208, -48 )
+
+[node name="Button_Block3" parent="Button_Blocks" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 208, -80 )
+
+[node name="Button_Block4" parent="Button_Blocks" index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 208, -112 )
+
+[node name="Button_Block5" parent="Button_Blocks" index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 240, -112 )
+block_color = 1
+
+[node name="Button_Block6" parent="Button_Blocks" index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 240, -80 )
+block_color = 1
+
+[node name="Button_Block7" parent="Button_Blocks" index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 240, -48 )
+block_color = 1
+
+[node name="Button_Block8" parent="Button_Blocks" index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 240, -16 )
+block_color = 1
+
+[node name="Key_Blocks" type="Node2D" parent="." index="8"]
+
+editor/display_folded = true
+
+[node name="KeyBlock" parent="Key_Blocks" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 368, -16 )
 
-[node name="KeyBlock2" parent="." index="6" instance=ExtResource( 4 )]
+[node name="KeyBlock2" parent="Key_Blocks" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 368, -48 )
 faceless = true
 
-[node name="KeyBlock3" parent="." index="7" instance=ExtResource( 4 )]
+[node name="KeyBlock3" parent="Key_Blocks" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 368, -80 )
 
-[node name="KeyBlock4" parent="." index="8" instance=ExtResource( 4 )]
+[node name="KeyBlock4" parent="Key_Blocks" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 432, -144 )
 key_color = 1
 
-[node name="KeyBlock5" parent="." index="9" instance=ExtResource( 4 )]
+[node name="KeyBlock5" parent="Key_Blocks" index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 432, -176 )
 key_color = 1
 faceless = true
 
-[node name="KeyBlock6" parent="." index="10" instance=ExtResource( 4 )]
+[node name="KeyBlock6" parent="Key_Blocks" index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 432, -208 )
 key_color = 1
 faceless = true
 
-[node name="KeyBlock7" parent="." index="11" instance=ExtResource( 4 )]
+[node name="KeyBlock7" parent="Key_Blocks" index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 432, -240 )
 key_color = 1
 
-[node name="KeyBlock8" parent="." index="12" instance=ExtResource( 4 )]
+[node name="KeyBlock8" parent="Key_Blocks" index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 688, -208 )
 key_color = 2
 
-[node name="KeyBlock9" parent="." index="13" instance=ExtResource( 4 )]
+[node name="KeyBlock9" parent="Key_Blocks" index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 688, -240 )
 key_color = 2
 
-[node name="KeyBlock10" parent="." index="14" instance=ExtResource( 4 )]
+[node name="KeyBlock10" parent="Key_Blocks" index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 656, -240 )
 key_color = 2
 
-[node name="KeyBlock11" parent="." index="15" instance=ExtResource( 4 )]
+[node name="KeyBlock11" parent="Key_Blocks" index="10" instance=ExtResource( 7 )]
 
 position = Vector2( 624, -240 )
 key_color = 2
 
-[node name="KeyBlock12" parent="." index="16" instance=ExtResource( 4 )]
+[node name="KeyBlock12" parent="Key_Blocks" index="11" instance=ExtResource( 7 )]
 
 position = Vector2( 624, -272 )
 key_color = 2
 
-[node name="KeyBlock13" parent="." index="17" instance=ExtResource( 4 )]
+[node name="KeyBlock13" parent="Key_Blocks" index="12" instance=ExtResource( 7 )]
 
 position = Vector2( 624, -304 )
 key_color = 2
 
-[node name="Button" parent="." index="18" instance=ExtResource( 5 )]
-
-position = Vector2( 176, 0 )
-
-[node name="Button_Block" parent="." index="19" instance=ExtResource( 6 )]
-
-position = Vector2( 208, -16 )
-
-[node name="Button_Block2" parent="." index="20" instance=ExtResource( 6 )]
-
-position = Vector2( 208, -48 )
-
-[node name="Button_Block3" parent="." index="21" instance=ExtResource( 6 )]
-
-position = Vector2( 208, -80 )
-
-[node name="Button_Block4" parent="." index="22" instance=ExtResource( 6 )]
-
-position = Vector2( 208, -112 )
-
-[node name="Button_Block5" parent="." index="23" instance=ExtResource( 6 )]
-
-position = Vector2( 240, -112 )
-block_color = 1
-
-[node name="Button_Block6" parent="." index="24" instance=ExtResource( 6 )]
-
-position = Vector2( 240, -80 )
-block_color = 1
-
-[node name="Button_Block7" parent="." index="25" instance=ExtResource( 6 )]
-
-position = Vector2( 240, -48 )
-block_color = 1
-
-[node name="Button_Block8" parent="." index="26" instance=ExtResource( 6 )]
-
-position = Vector2( 240, -16 )
-block_color = 1
-
-[node name="Player" parent="." index="27" instance=ExtResource( 7 )]
+[node name="Player" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 60, -30 )
+
+[node name="Background" parent="." index="10" instance=ExtResource( 9 )]
+
+position = Vector2( 60, -30 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 10 )
+_sections_unfolded = [ "Offset", "Transform" ]
+path_to_target = NodePath("../Player")
+
+[node name="Game_Limits" type="Node2D" parent="." index="11"]
+
+editor/display_folded = true
+script = ExtResource( 11 )
+path_to_player = NodePath("../Player")
+path_to_background = NodePath("../Background")
+
+[node name="BL" type="Position2D" parent="Game_Limits" index="0"]
+
+position = Vector2( -96, 128 )
+
+[node name="TR" type="Position2D" parent="Game_Limits" index="1"]
+
+position = Vector2( 800, -384 )
 
 
