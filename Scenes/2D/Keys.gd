@@ -22,7 +22,9 @@ func _physics_process(delta):
 
 func body_entered(body):
 	if "IS_PLAYER" in body:
-		var level_controller = get_tree().root.get_child(0);
+		
+		# Get the second child, because the background music is the first child!
+		var level_controller = get_tree().root.get_child(1);
 		
 		if key_color == 0:
 			level_controller.key_gotten("green");

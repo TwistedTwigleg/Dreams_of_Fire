@@ -97,14 +97,8 @@ func _physics_process(delta):
 			shader_vignetee.visible = true;
 			shader_vignetee.modulate.a = 1;
 	
-	# Capturing/Freeing the cursor
+	# Opening the pause menu popup, if there is not one open
 	if Input.is_action_just_pressed("ui_cancel"):
-		"""
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		"""
 		if (pause_popup == null):
 			pause_popup = PAUSE_POPUP_SCENE.instance();
 			add_child(pause_popup);
@@ -137,6 +131,9 @@ func _physics_process(delta):
 				
 				texture_rectangle.texture = ice_dimension_viewport.get_texture();
 				dimension_changing = false;
+				
+				# Change the music
+				Background_Music.change_music("Ice_BG");
 			
 			else:
 				fire_level_visible = true;
@@ -144,6 +141,9 @@ func _physics_process(delta):
 				
 				texture_rectangle.texture = fire_dimension_viewport.get_texture();
 				dimension_changing = false;
+				
+				# Change the music
+				Background_Music.change_music("Fire_BG");
 	
 	
 	elif (dimension_changing == false):
@@ -233,4 +233,5 @@ func crystal_gotten(dimension="2D"):
 	if (fire_cystal_got == true and ice_crystal_got == true):
 		dimension_changing = true;
 		shader_vignetee.visible = true;
+		shader_vignetee.modulate.a = 1;
 

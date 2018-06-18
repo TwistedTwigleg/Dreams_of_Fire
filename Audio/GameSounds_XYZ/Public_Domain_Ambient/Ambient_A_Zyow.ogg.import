@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ambient_A_Zyow.ogg-795ec308b8bd67e6512abf2b6a54c564.oggstr"
+
+[deps]
+
+source_file="res://Audio/GameSounds_XYZ/Public_Domain_Ambient/Ambient_A_Zyow.ogg"
+dest_files=[ "res://.import/Ambient_A_Zyow.ogg-795ec308b8bd67e6512abf2b6a54c564.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

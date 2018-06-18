@@ -43,7 +43,8 @@ func _ready():
 	animation_player.connect("animation_finished", self, "animation_finished");
 	animation_player.play("Idle");
 	
-	level_controller = get_tree().root.get_child(0);
+	# Get the second child, because the background music is the first child!
+	level_controller = get_tree().root.get_child(1);
 
 
 func _physics_process(delta):

@@ -1,0 +1,250 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/2D/Tilemap_01.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/2D/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/2D/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/2D/2D_Game_Limits.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/2D/Ice_Crystal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/2D/Button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/2D/Button_Block.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/2D/KeyBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/2D/Water.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 14
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Level_10" type="Node2D" index="0"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -786404, 9, 0, -786403, 9, 0, -720868, 9, 0, -720867, 9, 0, -655332, 9, 0, -655331, 9, 0, -589796, 9, 0, -589795, 9, 0, -524260, 9, 0, -524259, 9, 0, -458724, 9, 0, -458723, 9, 0, -393188, 9, 0, -393187, 9, 0, -262151, 8, 0, -262150, 8, 0, -327654, 8, 0, -327653, 8, 0, -327652, 9, 0, -327651, 9, 0, -196615, 9, 0, -196614, 9, 0, -262118, 9, 0, -262117, 9, 0, -262116, 9, 0, -262115, 9, 0, -131079, 9, 0, -131078, 9, 0, -196592, 8, 0, -196591, 8, 0, -196590, 8, 0, -196582, 9, 0, -196581, 9, 0, -196580, 9, 0, -196579, 9, 0, -65543, 9, 0, -65542, 9, 0, -131056, 9, 0, -131055, 9, 0, -131054, 9, 0, -131053, 8, 0, -131052, 8, 0, -131051, 8, 0, -131050, 8, 0, -131049, 8, 0, -131048, 8, 0, -131047, 8, 0, -131046, 9, 0, -131045, 9, 0, -131044, 9, 0, -131043, 9, 0, -7, 9, 0, -6, 9, 0, -65517, 9, 0, -65516, 9, 0, -65515, 9, 0, -65514, 9, 0, -65513, 9, 0, -65512, 9, 0, -65511, 9, 0, -65510, 9, 0, -65509, 9, 0, -65508, 9, 0, -65507, 9, 0, 65529, 9, 0, 65530, 9, 0, 3, 8, 0, 4, 8, 0, 10, 8, 0, 11, 8, 0, 19, 9, 0, 20, 9, 0, 21, 9, 0, 22, 9, 0, 23, 9, 0, 24, 9, 0, 25, 9, 0, 26, 9, 0, 27, 9, 0, 28, 9, 0, 29, 9, 0, 131065, 9, 0, 131066, 9, 0, 65539, 9, 0, 65540, 9, 0, 65546, 9, 0, 65547, 9, 0, 65555, 9, 0, 65556, 9, 0, 65557, 9, 0, 65558, 9, 0, 65559, 9, 0, 65560, 9, 0, 65561, 9, 0, 65562, 9, 0, 65563, 9, 0, 65564, 9, 0, 65565, 9, 0, 196601, 9, 0, 196602, 9, 0, 196603, 8, 0, 196604, 8, 0, 196605, 8, 0, 196606, 8, 0, 196607, 8, 0, 131072, 8, 0, 131073, 8, 0, 131074, 8, 0, 131075, 9, 0, 131076, 9, 0, 131077, 8, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 131082, 9, 0, 131083, 9, 0, 131084, 8, 0, 131085, 8, 0, 131086, 8, 0, 131087, 8, 0, 131088, 8, 0, 131089, 8, 0, 131090, 8, 0, 131091, 8, 0, 131092, 8, 0, 131093, 8, 0, 131094, 8, 0, 131095, 8, 0, 131096, 8, 0, 131097, 8, 0, 131098, 9, 0, 131099, 9, 0, 131100, 9, 0, 131101, 9, 0, 262137, 9, 0, 262138, 9, 0, 262139, 9, 0, 262140, 9, 0, 262141, 9, 0, 262142, 9, 0, 262143, 9, 0, 196608, 9, 0, 196609, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 9, 0, 196615, 9, 0, 196616, 9, 0, 196617, 9, 0, 196618, 9, 0, 196619, 9, 0, 196620, 9, 0, 196621, 9, 0, 196622, 9, 0, 196623, 9, 0, 196624, 9, 0, 196625, 9, 0, 196626, 9, 0, 196627, 9, 0, 196628, 9, 0, 196629, 9, 0, 196630, 9, 0, 196631, 9, 0, 196632, 9, 0, 196633, 9, 0, 196634, 9, 0, 196635, 9, 0, 196636, 9, 0, 196637, 9, 0, 327673, 10, 0, 327674, 10, 0, 327675, 10, 0, 327676, 10, 0, 327677, 10, 0, 327678, 10, 0, 327679, 10, 0, 262144, 10, 0, 262145, 10, 0, 262146, 10, 0, 262147, 10, 0, 262148, 10, 0, 262149, 10, 0, 262150, 10, 0, 262151, 10, 0, 262152, 10, 0, 262153, 10, 0, 262154, 10, 0, 262155, 10, 0, 262156, 10, 0, 262157, 10, 0, 262158, 10, 0, 262159, 10, 0, 262160, 10, 0, 262161, 10, 0, 262162, 10, 0, 262163, 10, 0, 262164, 10, 0, 262165, 10, 0, 262166, 10, 0, 262167, 10, 0, 262168, 10, 0, 262169, 10, 0, 262170, 10, 0, 262171, 10, 0, 262172, 10, 0, 262173, 10, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 44 )
+
+[node name="Background" parent="." index="2" instance=ExtResource( 3 )]
+
+path_to_target = NodePath("../Player")
+
+[node name="Game_Limits" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+script = ExtResource( 4 )
+path_to_player = NodePath("../Player")
+path_to_background = NodePath("../Background")
+
+[node name="BL" type="Position2D" parent="Game_Limits" index="0"]
+
+position = Vector2( -224, 160 )
+
+[node name="TR" type="Position2D" parent="Game_Limits" index="1"]
+
+position = Vector2( 960, -384 )
+
+[node name="Ice_Crystal" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 864, -192 )
+
+[node name="Label_Info" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -72.0
+margin_top = 77.0
+margin_right = 216.0
+margin_bottom = 143.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Well... This is the fine one...
+Good luck!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button_Green" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 192, 64 )
+
+[node name="Button_Red" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 288, 64 )
+key_color = 1
+
+[node name="Button_Red2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 560, 64 )
+key_color = 1
+
+[node name="ButtonBlocks_Blue" type="Node2D" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="Button_Block" parent="ButtonBlocks_Blue" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 176, -16 )
+block_color = 2
+
+[node name="Button_Block2" parent="ButtonBlocks_Blue" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 208, -16 )
+block_color = 2
+
+[node name="Button_Block3" parent="ButtonBlocks_Blue" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 240, -16 )
+block_color = 2
+
+[node name="Button_Block4" parent="ButtonBlocks_Blue" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 272, -16 )
+block_color = 2
+
+[node name="Button_Block5" parent="ButtonBlocks_Blue" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 304, -16 )
+block_color = 2
+
+[node name="Button_Block6" parent="ButtonBlocks_Blue" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 816, -144 )
+block_color = 2
+
+[node name="Button_Block7" parent="ButtonBlocks_Blue" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 816, -176 )
+block_color = 2
+
+[node name="Button_Block8" parent="ButtonBlocks_Blue" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 816, -208 )
+block_color = 2
+
+[node name="Button_Block9" parent="ButtonBlocks_Blue" index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 816, -240 )
+block_color = 2
+
+[node name="Button_Block10" parent="ButtonBlocks_Blue" index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 816, -272 )
+block_color = 2
+
+[node name="Button_Block11" parent="ButtonBlocks_Blue" index="10" instance=ExtResource( 8 )]
+
+position = Vector2( 848, -272 )
+block_color = 2
+
+[node name="Button_Block12" parent="ButtonBlocks_Blue" index="11" instance=ExtResource( 8 )]
+
+position = Vector2( 880, -272 )
+block_color = 2
+
+[node name="Blue_Key_Blocks" type="Node2D" parent="." index="10"]
+
+editor/display_folded = true
+
+[node name="KeyBlock" parent="Blue_Key_Blocks" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -16 )
+key_color = 2
+
+[node name="KeyBlock2" parent="Blue_Key_Blocks" index="1" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -48 )
+key_color = 2
+
+[node name="KeyBlock3" parent="Blue_Key_Blocks" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -80 )
+key_color = 2
+
+[node name="KeyBlock4" parent="Blue_Key_Blocks" index="3" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -112 )
+key_color = 2
+
+[node name="KeyBlock5" parent="Blue_Key_Blocks" index="4" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -144 )
+key_color = 2
+
+[node name="KeyBlock6" parent="Blue_Key_Blocks" index="5" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -176 )
+key_color = 2
+
+[node name="KeyBlock7" parent="Blue_Key_Blocks" index="6" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -208 )
+key_color = 2
+
+[node name="KeyBlock8" parent="Blue_Key_Blocks" index="7" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -240 )
+key_color = 2
+
+[node name="KeyBlock9" parent="Blue_Key_Blocks" index="8" instance=ExtResource( 9 )]
+
+position = Vector2( 368, -272 )
+key_color = 2
+
+[node name="Water" type="Node2D" parent="." index="11"]
+
+editor/display_folded = true
+
+[node name="Water" parent="Water" index="0" instance=ExtResource( 10 )]
+
+position = Vector2( 400, 48 )
+
+[node name="Water2" parent="Water" index="1" instance=ExtResource( 10 )]
+
+position = Vector2( 432, 48 )
+
+[node name="Water3" parent="Water" index="2" instance=ExtResource( 10 )]
+
+position = Vector2( 496, -80 )
+rotation = -1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="Water4" parent="Water" index="3" instance=ExtResource( 10 )]
+
+position = Vector2( 496, -48 )
+rotation = -1.5708
+_sections_unfolded = [ "Transform" ]
+
+

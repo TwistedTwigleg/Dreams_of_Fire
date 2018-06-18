@@ -10,7 +10,9 @@ func _physics_process(delta):
 
 func body_entered(body):
 	if "IS_PLAYER" in body:
-		var level_controller = get_tree().root.get_child(0);
+		
+		# Get the second child, because the background music is the first child!
+		var level_controller = get_tree().root.get_child(1);
 		
 		level_controller.crystal_gotten("3D");
 		

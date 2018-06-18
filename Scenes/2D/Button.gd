@@ -24,7 +24,8 @@ func _ready():
 	
 	starting_frame = sprite.frame;
 	
-	level_controller = get_tree().root.get_child(0);
+	# Get the second child, because the background music is the first child!
+	level_controller = get_tree().root.get_child(1);
 	
 	get_node("Area2D").connect("body_entered", self, "body_entered");
 	get_node("Area2D").connect("body_exited", self, "body_exitied");

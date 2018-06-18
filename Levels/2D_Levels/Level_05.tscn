@@ -75,9 +75,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -120.0
-margin_top = 41.0
+margin_top = 48.0
 margin_right = 168.0
-margin_bottom = 107.0
+margin_bottom = 100.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -88,8 +88,7 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Wake and fall asleep up by pressing
-CONTROL or F.
-(Controls are exactly the same!)"
+CONTROL or F."
 align = 1
 percent_visible = 1.0
 lines_skipped = 0

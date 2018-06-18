@@ -92,7 +92,6 @@ light_mode = 0
 
 [node name="Level_05" type="Node" index="0"]
 
-editor/display_folded = true
 script = ExtResource( 1 )
 next_level = "res://Levels/Level_06.tscn"
 restart_level = "res://Levels/Level_05.tscn"
@@ -132,7 +131,6 @@ _sections_unfolded = [ "Render Target" ]
 
 [node name="3D" type="Viewport" parent="." index="1"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 1280, 720 )
 own_world = true

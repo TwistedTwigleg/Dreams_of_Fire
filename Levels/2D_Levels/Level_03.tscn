@@ -20,8 +20,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Level_03" type="Node2D" index="0"]
 
-editor/display_folded = true
-
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 mode = 0
@@ -230,10 +228,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 792.0
-margin_top = -432.0
-margin_right = 947.0
-margin_bottom = -366.0
+margin_left = 888.0
+margin_top = -320.0
+margin_right = 1043.0
+margin_bottom = -254.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -248,7 +247,7 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="Label2" type="Label" parent="." index="11"]
 
@@ -259,7 +258,7 @@ anchor_bottom = 0.0
 margin_left = 248.0
 margin_top = -16.0
 margin_right = 432.0
-margin_bottom = 73.0
+margin_bottom = 4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

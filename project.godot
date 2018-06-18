@@ -14,6 +14,10 @@ config/name="Dreams_of_Fire"
 run/main_scene="res://Scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Background_Music="*res://Audio/Background_Music.gd"
+
 [display]
 
 window/size/width=1280

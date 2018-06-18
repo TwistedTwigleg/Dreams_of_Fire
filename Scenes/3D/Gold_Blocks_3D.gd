@@ -3,7 +3,8 @@ extends Spatial
 export (int, "green", "red", "blue") var block_color = 0;
 
 func _ready():
-	var level_controller = get_tree().root.get_child(0);
+	# Get the second child, because the background music is the first child!
+	var level_controller = get_tree().root.get_child(1);
 	
 	get_node("Gold_Tile_Blue").visible = false;
 	get_node("Gold_Tile_Red").visible = false;

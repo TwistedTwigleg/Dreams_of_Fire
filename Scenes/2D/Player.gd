@@ -47,7 +47,8 @@ func _ready():
 	
 	camera = get_node("Camera2D");
 	
-	level_controller = get_tree().root.get_child(0);
+	# Get the second child, because the background music is the first child!
+	level_controller = get_tree().root.get_child(1);
 
 func _physics_process(delta):
 	if (level_controller.fire_level_visible == true):

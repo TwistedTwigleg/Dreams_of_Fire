@@ -4,7 +4,8 @@ export (int, "green", "red", "blue") var key_color = 0;
 export (bool) var faceless = false;
 
 func _ready():
-	var level_controller = get_tree().root.get_child(0);
+	# Get the second child, because the background music is the first child!
+	var level_controller = get_tree().root.get_child(1);
 	
 	if (key_color == 0):
 		level_controller.green_key_blocks.append(self);

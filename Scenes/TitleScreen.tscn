@@ -133,7 +133,6 @@ stretch_mode = 0
 
 [node name="Start_Screen" type="Control" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -182,33 +181,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 360.0
-margin_top = 180.0
+margin_top = 179.0
 margin_right = 910.0
-margin_bottom = 194.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Made for Godot Community Jam - June 2018"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors" ]
-
-[node name="TitleScreen_Label3" type="Label" parent="Start_Screen" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 360.0
-margin_top = 200.0
-margin_right = 910.0
-margin_bottom = 214.0
+margin_bottom = 193.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -223,7 +198,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors" ]
 
-[node name="Particles2D" type="Particles2D" parent="Start_Screen" index="3"]
+[node name="Particles2D" type="Particles2D" parent="Start_Screen" index="2"]
 
 modulate = Color( 0.15625, 0.15625, 0.15625, 1 )
 self_modulate = Color( 1, 0.359863, 0.109375, 1 )
@@ -249,7 +224,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Time", "Visibility" ]
 
-[node name="Button_Start" type="Button" parent="Start_Screen" index="4"]
+[node name="Button_Start" type="Button" parent="Start_Screen" index="3"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -276,7 +251,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Button_Quit" type="Button" parent="Start_Screen" index="5"]
+[node name="Button_Quit" type="Button" parent="Start_Screen" index="4"]
 
 anchor_left = 1.0
 anchor_top = 1.0
