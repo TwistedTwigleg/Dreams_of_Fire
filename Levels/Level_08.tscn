@@ -133,6 +133,7 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Shadow Atlas" ]
 
 [node name="Level_08" parent="3D" index="0" instance=ExtResource( 3 )]
 
