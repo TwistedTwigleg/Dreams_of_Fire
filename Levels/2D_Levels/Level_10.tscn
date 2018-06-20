@@ -88,7 +88,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Well... This is the fine one...
+text = "Well... This is the final one...
 Good luck!"
 align = 1
 percent_visible = 1.0

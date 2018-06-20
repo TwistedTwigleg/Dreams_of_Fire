@@ -14,19 +14,19 @@ length = 8.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Ice_Crystal:position")
+tracks/0/path = NodePath("TileMap_01:collision_layer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4, 8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 800, -384 ), Vector2( -128, -384 ), Vector2( 800, -384 ) ]
+"times": PoolRealArray( 0, 2, 4, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1, 0, 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("TileMap_01:collision_layer")
+tracks/1/path = NodePath("TileMap_01:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,10 +35,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2, 4, 6, 8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 0, 1, 0, 1 ]
+"values": [ true, false, true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("TileMap_01:visible")
+tracks/2/path = NodePath("TileMap_01:collision_mask")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -47,10 +47,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 2, 4, 6, 8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true, false, true ]
+"values": [ 1, 0, 1, 0, 1 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("TileMap_01:collision_mask")
+tracks/3/path = NodePath("TileMap_02:collision_layer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -59,10 +59,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 2, 4, 6, 8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 0, 1, 0, 1 ]
+"values": [ 0, 1, 0, 1, 0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("TileMap_02:collision_layer")
+tracks/4/path = NodePath("TileMap_02:collision_mask")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -74,7 +74,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 0, 1, 0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("TileMap_02:collision_mask")
+tracks/5/path = NodePath("TileMap_02:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -83,19 +83,19 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 2, 4, 6, 8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 0, 1, 0 ]
+"values": [ false, true, false, true, false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("TileMap_02:visible")
+tracks/6/path = NodePath("Ice_Crystal:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 2, 4, 6, 8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false ]
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, -368 ), Vector2( -128, -368 ), Vector2( 800, -368 ) ]
 }
 
 [node name="Level_04_1" type="Node2D" index="0"]
@@ -189,7 +189,7 @@ position = Vector2( 896, -480 )
 
 [node name="Ice_Crystal" parent="." index="6" instance=ExtResource( 5 )]
 
-position = Vector2( 800, -384 )
+position = Vector2( 800, -368 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Crystal_Move_Anim" type="AnimationPlayer" parent="." index="7"]
@@ -198,7 +198,7 @@ root_node = NodePath("..")
 autoplay = "Anim"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-playback_speed = 0.5
+playback_speed = 0.4
 anims/Anim = SubResource( 1 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]

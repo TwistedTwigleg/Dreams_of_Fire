@@ -89,7 +89,7 @@ position = Vector2( 352, -928 )
 
 [node name="Ice_Crystal" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 240, -800 )
+position = Vector2( 240, -768 )
 
 [node name="Label" type="Label" parent="." index="5"]
 
@@ -97,9 +97,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 16.0
 margin_top = 16.0
-margin_right = 144.0
+margin_right = 160.0
 margin_bottom = 36.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -107,11 +109,13 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "Press R or L to restart"
+text = "Press Backspace or
+Delete to restart"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Label2" type="Label" parent="." index="6"]
 
@@ -119,10 +123,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = -528.0
-margin_right = 271.0
-margin_bottom = -485.0
+margin_left = 64.0
+margin_top = -496.0
+margin_right = 319.0
+margin_bottom = -453.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -131,11 +136,11 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Wait! There is nothing up here
-and you will just be wasting your time"
+and you will just be wasting your time!"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="Label3" type="Label" parent="." index="7"]
 
@@ -143,10 +148,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -160.0
-margin_top = -864.0
-margin_right = 288.0
-margin_bottom = -798.0
+margin_left = 80.0
+margin_top = -800.0
+margin_right = 304.0
+margin_bottom = -734.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -161,7 +167,7 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect" ]
 
 [node name="Button" parent="." index="8" instance=ExtResource( 7 )]
 

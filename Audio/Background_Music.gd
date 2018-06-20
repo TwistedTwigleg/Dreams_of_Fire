@@ -35,5 +35,7 @@ func change_music(new_audio_name, force_from_start = false):
 			audio_player.play(audio_positions[new_audio_name]);
 			
 			current_audio_name = new_audio_name;
+		else:
+			print ("Error: Cannot play unkown background music: ", new_audio_name);
 	else:
-		print ("Error: Cannot play unkown background music: ", new_audio_name);
+		pass; # We are already playing that music!

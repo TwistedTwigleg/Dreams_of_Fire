@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://2D_Art/vignette.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+
+uniform sampler2D vignette;
+uniform float fade_strength;
+
+// TODO: in the future, either reduce this number or make it configurable!
+uniform float blur_strength = 4.0;
+
+void fragment() {
+	vec3 vignette_color = texture(vignette,UV).rgb;
+	//screen texture stores gaussian blurred copies on mipmaps
+	COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,(1.0-vignette_color.r)*blur_strength).rgb + vec3(fade_strength, fade_strength, fade_strength);
+	COLOR.rgb*= texture(vignette,UV).rgb;
+}"
+
+[resource]
+
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/fade_strength = 0.3
+shader_param/blur_strength = null
+shader_param/vignette = ExtResource( 1 )
+_sections_unfolded = [ "shader_param" ]
+

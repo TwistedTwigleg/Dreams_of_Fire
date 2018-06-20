@@ -87,8 +87,10 @@ func process_input(delta):
 		if Input.is_action_pressed("Move_Left"):
 			direction_movement.x -= 1;
 		
-		if Input.is_action_pressed("Move_Down"):
-			velocity.y += HOP_SPEED;
+		# I think this is causing players to get stuck in the ground...
+		# Will need to (potentially) add again later!
+		#if Input.is_action_pressed("Move_Down"):
+		#	velocity.y += HOP_SPEED;
 	
 		# Dashing
 		if Input.is_action_pressed("Sprint") and can_dash == true:

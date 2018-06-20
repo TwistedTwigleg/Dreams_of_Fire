@@ -103,9 +103,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 215.0
+margin_left = 199.0
 margin_top = 71.0
-margin_right = 503.0
+margin_right = 556.0
 margin_bottom = 137.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -117,7 +117,8 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "If you get stuck,
-press R or L to restart the current level"
+press Backspace or Delete
+to restart the current level"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -143,7 +144,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Fire can dash up
+text = "Fire can dash at
 walls to slide up them."
 align = 1
 percent_visible = 1.0
