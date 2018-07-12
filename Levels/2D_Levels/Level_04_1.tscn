@@ -85,18 +85,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false, true, false, true, false ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Ice_Crystal:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 4, 8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 800, -368 ), Vector2( -128, -368 ), Vector2( 800, -368 ) ]
-}
 
 [node name="Level_04_1" type="Node2D" index="0"]
 
@@ -189,7 +177,7 @@ position = Vector2( 896, -480 )
 
 [node name="Ice_Crystal" parent="." index="6" instance=ExtResource( 5 )]
 
-position = Vector2( 800, -368 )
+position = Vector2( 336, -245 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Crystal_Move_Anim" type="AnimationPlayer" parent="." index="7"]

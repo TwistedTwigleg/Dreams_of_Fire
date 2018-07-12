@@ -71,10 +71,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -108.0
+margin_left = -121.0
 margin_top = 64.0
-margin_right = 324.0
-margin_bottom = 130.0
+margin_right = 311.0
+margin_bottom = 107.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -84,16 +84,41 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Jump by pressing SPACE, or J.
-You can also jump with W or the up arrow.
-Move while in the air using WASD or arrow keys."
+text = "Move using WASD, Jump by pressing Space or W."
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Label_Info2" type="Label" parent="." index="6"]
+[node name="Label_Info_extra" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -121.0
+margin_top = 74.0
+margin_right = 311.0
+margin_bottom = 117.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.527344, 1, 0.5, 1 )
+text = "You can configure the controls at the title screen
+These messages use the default controls."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors" ]
+
+[node name="Label_Info2" type="Label" parent="." index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -113,15 +138,14 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "While pointing in the direction
-you want to go, press SHIFT
-or K to dash"
+you want to go, press SHIFT to dash"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Label_Info3" type="Label" parent="." index="7"]
+[node name="Label_Info3" type="Label" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0

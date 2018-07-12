@@ -3,8 +3,8 @@ extends Node2D
 export (int, "green", "red", "blue") var block_color = 0;
 
 func _ready():
-	# Get the second child, because the background music is the first child!
-	var level_controller = get_tree().root.get_child(1);
+	# Get the third child, because the loaded scene is placed after auto load scripts!
+	var level_controller = get_tree().root.get_child(2);
 	
 	if (block_color == 0):
 		level_controller.green_button_blocks.append(self);

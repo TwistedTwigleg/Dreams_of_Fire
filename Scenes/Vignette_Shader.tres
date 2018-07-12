@@ -10,7 +10,7 @@ uniform sampler2D vignette;
 uniform float fade_strength;
 
 // TODO: in the future, either reduce this number or make it configurable!
-uniform float blur_strength = 4.0;
+uniform float blur_strength;
 
 void fragment() {
 	vec3 vignette_color = texture(vignette,UV).rgb;
@@ -24,7 +24,7 @@ void fragment() {
 render_priority = 0
 shader = SubResource( 1 )
 shader_param/fade_strength = 0.3
-shader_param/blur_strength = null
+shader_param/blur_strength = 4.0
 shader_param/vignette = ExtResource( 1 )
 _sections_unfolded = [ "shader_param" ]
 

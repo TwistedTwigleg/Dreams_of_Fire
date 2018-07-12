@@ -26,8 +26,8 @@ func _ready():
 	if key_color == 2:
 		button_meshes.get_node("Blue_Button").visible = true;
 	
-	# Get the second child, because the background music is the first child!
-	level_controller = get_tree().root.get_child(1);
+	# Get the third child, because the loaded scene is placed after auto load scripts!
+	level_controller = get_tree().root.get_child(2);
 	
 	get_node("Area").connect("body_entered", self, "body_entered");
 	get_node("Area").connect("body_exited", self, "body_exitied");

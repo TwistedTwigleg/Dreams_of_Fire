@@ -25,8 +25,14 @@ const MAX_SLOPE_ANGLE = 40
 var camera
 var camera_holder_y;
 var camera_holder_x;
+var camera_target;
 
 var MOUSE_SENSITIVITY = 0.05
+
+const MAX_ZOOM = -12;
+const MIN_ZOOM = -20;
+const ZOOM_SPEED = 2;
+
 
 var animation_player;
 
@@ -35,16 +41,17 @@ var level_controller;
 const MAX_Y_VALUE = -20;
 
 func _ready():
-	camera = get_node("Camera_Holder_Y/Camera_Holder_X/Camera");
+	camera = get_node("KinematicCamera/Camera");
 	camera_holder_y = get_node("Camera_Holder_Y");
 	camera_holder_x = get_node("Camera_Holder_Y/Camera_Holder_X");
+	camera_target = get_node("Camera_Holder_Y/Camera_Holder_X/Target");
 	
 	animation_player = get_node("Scene Root/AnimationPlayer");
 	animation_player.connect("animation_finished", self, "animation_finished");
 	animation_player.play("Idle");
 	
-	# Get the second child, because the background music is the first child!
-	level_controller = get_tree().root.get_child(1);
+	# Get the third child, because the loaded scene is placed after auto load scripts!
+	level_controller = get_tree().root.get_child(2);
 
 
 func _physics_process(delta):
@@ -84,8 +91,7 @@ func process_input(delta):
 	# Jumping and Dashing
 	if is_on_floor():
 		if Input.is_action_just_pressed("Jump"):
-			play_animation("Jump_Start", 0.2, 3);
-			#vel.y = JUMP_SPEED
+			play_animation("Jump_Start", 0.2, 4);
 		
 		can_dash = true;
 	
@@ -139,7 +145,7 @@ func process_movement(delta):
 				else:
 					play_animation("Idle", 0.2);
 			elif (animation_player.current_animation == "Jump_Mid_Air"):
-				play_animation("Jump_Land", 0.2, 3);
+				play_animation("Jump_Land", 0.2, 4);
 	
 	
 	else:
@@ -167,12 +173,26 @@ func process_movement(delta):
 
 func _input(event):
 	if (level_controller.ice_level_visible == true):
-		if event is InputEventMouseMotion: #and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		
+		if event is InputEventMouseMotion:
 			camera_holder_y.rotate_y(deg2rad(-event.relative.x * MOUSE_SENSITIVITY))
 			
 			camera_holder_x.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY));
-			camera_holder_x.rotation_degrees.x = clamp(camera_holder_x.rotation_degrees.x, -40, 40);
-
+			camera_holder_x.rotation_degrees.x = clamp(camera_holder_x.rotation_degrees.x, -80, 80);
+		
+		if event is InputEventMouseButton:
+			if event.button_index == BUTTON_WHEEL_UP:
+				if (camera_target.translation.z < MAX_ZOOM):
+					if (event.factor != 0):
+						camera_target.translation.z += ZOOM_SPEED * event.factor;
+					else:
+						camera_target.translation.z += ZOOM_SPEED / 2;
+			elif event.button_index == BUTTON_WHEEL_DOWN:
+				if (camera_target.translation.z > MIN_ZOOM):
+					if (event.factor != 0):
+						camera_target.translation.z -= ZOOM_SPEED * event.factor;
+					else:
+						camera_target.translation.z -= ZOOM_SPEED / 2;
 
 
 func animation_finished(animation_name):

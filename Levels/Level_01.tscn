@@ -78,7 +78,6 @@ no_ice_level = true
 
 [node name="2D" type="Viewport" parent="." index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 1280, 720 )
 own_world = true

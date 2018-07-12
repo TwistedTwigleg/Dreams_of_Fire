@@ -73,6 +73,15 @@ func _ready():
 	shader_strength = BLACK_VIGNETTE_STRENGTH;
 	shader_vignetee.visible = true;
 	shader_vignetee.material.set_shader_param("fade_strength", shader_strength);
+	
+	if (Globals.config_file.has_section("Shader_Values")):
+		if (Globals.config_file.has_section_key("Shader_Values", "Shader_Blur")):
+			shader_vignetee.material.set_shader_param("blur_strength", (Globals.config_file.get_value("Shader_Values", "Shader_Blur", 50) / 100) * 4);
+		else:
+			shader_vignetee.material.set_shader_param("blur_strength", 2);
+	else:
+		shader_vignetee.material.set_shader_param("blur_strength", 2);
+	
 	dimension_changing = true;
 	
 	if (no_fire_level == true):

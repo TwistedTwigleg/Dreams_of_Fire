@@ -116,8 +116,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "If you get stuck,
-press Backspace or Delete
+text = "If you get stuck, press Backspace
 to restart the current level"
 align = 1
 percent_visible = 1.0

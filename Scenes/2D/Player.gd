@@ -4,7 +4,7 @@ const IS_PLAYER = true;
 var velocity = Vector2();
 
 const SPEED = 80;
-const JUMP_SPEED = 240;
+const JUMP_SPEED = 200;
 const HOP_SPEED = 40;
 const GRAVITY = 30;
 
@@ -22,6 +22,8 @@ var can_dash = false;
 var dash_direction = Vector2();
 var up_dash = false;
 
+var is_jumping = false;
+
 const MERCY_TIME = 0.2;
 var mercy_timer = 0;
 var grounded = true;
@@ -34,8 +36,8 @@ var animation_player;
 const ANIMATION_SPEEDS = {
 	"Idle":1,
 	"In_Air":1.5,
-	"Jump_Start":2,
-	"Jump_End":2,
+	"Jump_Start":3,
+	"Jump_End":3,
 }
 
 var level_controller;
@@ -47,8 +49,9 @@ func _ready():
 	
 	camera = get_node("Camera2D");
 	
-	# Get the second child, because the background music is the first child!
-	level_controller = get_tree().root.get_child(1);
+	# Get the third child, because the loaded scene is placed after auto load scripts!
+	level_controller = get_tree().root.get_child(2);
+
 
 func _physics_process(delta):
 	if (level_controller.fire_level_visible == true):
@@ -61,7 +64,6 @@ func _physics_process(delta):
 func process_grounded(delta):
 	get_node("RayCast2D").force_raycast_update();
 	if get_node("RayCast2D").is_colliding():
-		#if !(get_node("RayCast2D").get_collider() is Area2D):
 		grounded = true;
 		mercy_timer = 0;
 		can_dash = true;
@@ -81,31 +83,35 @@ func process_input(delta):
 	direction_movement = Vector2();
 	
 	# We only want to be able to move while in the air, forcing the player to jump to move
+	# for the majority of the game's movement. Feedback from the jam has shown me people
+	# want to be able to move while on the ground.
 	if (grounded == false and is_dashing == false):
 		if Input.is_action_pressed("Move_Right"):
-			direction_movement.x += 1;
+			direction_movement.x = 1;
 		if Input.is_action_pressed("Move_Left"):
-			direction_movement.x -= 1;
+			direction_movement.x = -1;
 		
-		# I think this is causing players to get stuck in the ground...
-		# Will need to (potentially) add again later!
-		#if Input.is_action_pressed("Move_Down"):
-		#	velocity.y += HOP_SPEED;
-	
 		# Dashing
 		if Input.is_action_pressed("Sprint") and can_dash == true:
-			is_dashing = true;
-			dash_timer = 0;
-			can_dash = false;
-			dash_direction = direction_movement;
-	
+			if (direction_movement.x != 0):
+				is_dashing = true;
+				dash_timer = 0;
+				can_dash = false;
+				dash_direction = direction_movement;
+		
 	else:
 		
 		if (animation_player.current_animation == "Idle"):
 			if Input.is_action_pressed("Move_Up") or Input.is_action_pressed("Jump"):
 				velocity.y = -HOP_SPEED;
 				change_animation("Jump_Start");
-	
+				is_jumping = true;
+		
+		if (is_dashing == false and is_jumping == false):
+			if Input.is_action_pressed("Move_Right"):
+				direction_movement.x = 1;
+			elif Input.is_action_pressed("Move_Left"):
+				direction_movement.x = -1;
 
 
 func process_movement(delta):
@@ -125,7 +131,8 @@ func process_movement(delta):
 			if (is_on_wall() == false and up_dash == false):
 				
 				if (dash_direction.x == 0):
-					dash_direction.x = 1;
+					#dash_direction.x = 1;
+					pass
 				
 				velocity.y = 0;
 				velocity.x = dash_direction.x * SPEED * 5;
@@ -172,7 +179,10 @@ func animation_finished(animation_name):
 		change_animation("In_Air");
 	
 	if (animation_name == "Jump_Start"):
-		velocity.y = -JUMP_SPEED;
+		if (is_jumping == true):
+			velocity.y = -JUMP_SPEED;
+			is_jumping = false;
+		
 		change_animation("In_Air");
 	
 	if (animation_name == "Jump_End"):

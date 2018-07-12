@@ -79,7 +79,6 @@ no_ice_level = false
 
 [node name="2D" type="Viewport" parent="." index="0"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 1280, 720 )
 own_world = true
@@ -109,7 +108,6 @@ _sections_unfolded = [ "Render Target" ]
 
 [node name="3D" type="Viewport" parent="." index="1"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 1280, 720 )
 own_world = true
