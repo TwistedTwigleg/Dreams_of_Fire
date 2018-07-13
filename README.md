@@ -2,14 +2,13 @@
 My game jam game for Godot Community Game Jam - June 2018 The theme is *temperature*. I have decided to make two game worlds,
 one 2D where you control a flame, and one 3D where you control a ice golem of sorts.
 
-Nothing much to see right now. The game is (currently) in a bare bones state. The basics are working, and that is about
-it. The code is pretty hastily written right now, as the jam is only three days. I'll clean up the code once the judging period
-of the jam is over.
+The code is pretty rough in some places, but the game works and is pretty fun too!
 
-Some assets may use a different license (though I do not think there is any right now). **Please do not download and/or
-redistribute right now! I will add all of the proper information for the various assets once the jam is over!**
+I did not create the following assets:
 
-Also, the game is very unstable right now, as I am still working on it!
+* The music is public domain, and was download from the public domain folder on [GameSounds.xyz](https://gamesounds.xyz/?dir=Public%20Domain)
+* Mountains-of-christmas is licensed under the Apache License, and was downloaded from [Fontsquirrel](https://www.fontsquirrel.com/fonts/mountains-of-christmas?filter%5Blicense%5D%5B0%5D=open&sort=popular)
+* OpenSans is licensed under the the Apache License, and was downloaded from [Fontsquirrel](https://www.fontsquirrel.com/fonts/open-sans?filter%5Blicense%5D%5B0%5D=open&sort=popular)
+* The pallet used for the 2D and 3D art is Endesga and was downloaded from [Lospec](https://lospec.com/palette-list)
 
-All of the 2D and 3D art, minus the vignette texture and the white texture,
-have been created by me (TwistedTwigleg) specifically for Godot Community Game Jam - June 2018.
+The rest of the assets were created by me (TwistedTwigleg).
